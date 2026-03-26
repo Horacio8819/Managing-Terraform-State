@@ -1,6 +1,7 @@
 # Day 6: Managing Terraform State - Best Practices for DevOps
 
 Part of my 30 Day Terraform Challenge journey with AWS AI/ML UserGroup Kenya, Meru HashiCorp User Group, and EveOps.
+
 ---
 
 ## Overview
@@ -8,7 +9,7 @@ Part of my 30 Day Terraform Challenge journey with AWS AI/ML UserGroup Kenya, Me
 This project demonstrates using Terraform to provision AWS resources with remote state management in S3 and state locking. 
 It includes best practices for state security, versioning, and team collaboration.
 cover what state is, why local state fails at scale, and how to set up S3 + DynamoDB correctly.
----
+
 
 ## Challenge 
 
