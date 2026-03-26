@@ -44,7 +44,7 @@ In your Terraform configuration main.tf, add:
 - Lock error: This prevents multiple people (or CI/CD pipelines) from simultaneously modifying the state, which could corrupt it.
 ---
 
-### Key Concepts Covered
+## Key Concepts Covered
 
 Terraform keeps track of your infrastructure in a **state file**, which maps your configuration to real-world resources.
 Local state works fine for personal projects, but it fails at scale in team environments:
@@ -57,9 +57,8 @@ The state file contains sensitive information such as resource IDs, IP addresses
 
 The bootstrap problem refers to the challenge of setting up the infrastructure required to manage Terraform state. You cannot initially rely on Terraform to create the S3 bucket or locking mechanism it needs for remote state. These resources must be provisioned first (often manually or via a separate configuration), after which the backend is configured and terraform init  is used to migrate the state.
 
-State locking prevents multiple users from running Terraform operations (such as apply) at the same time on the same state file. This avoids race conditions, state corruption, and inconsistent infrastructure changes.
+State locking prevents multiple users from running Terraform operations (such as apply) at the same time on the same state file. This avoids race conditions, state corruption, and inconsistent infrastructure changes. S3 versioning protects against accidental deletion or corruption of the Terraform state file. Each update creates a new version, allowing you to restore a previous known-good state if something goes wrong, ensuring greater resilience and recoverability.
 
-S3 versioning protects against accidental deletion or corruption of the Terraform state file. Each update creates a new version, allowing you to restore a previous known-good state if something goes wrong, ensuring greater resilience and recoverability.
 ---
 
 ### Author
