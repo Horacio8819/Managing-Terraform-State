@@ -28,15 +28,15 @@ DynamoDB Table → LockID as hash key, PAY_PER_REQUEST billing
 ### Configure Terraform Backend
 In your Terraform configuration main.tf, add:
 
-terraform {
-  backend "s3" {
-    bucket         = "your-unique-terraform-state-bucket"
-    key            = "global/s3/terraform.tfstate"
-    region         = "us-east-1"
-    dynamodb_table = "terraform-state-locks"
-    encrypt        = true
-  }
-}
+                                                                  terraform {
+                                                                    backend "s3" {
+                                                                      bucket         = "your-unique-terraform-state-bucket"
+                                                                      key            = "global/s3/terraform.tfstate"
+                                                                      region         = "us-east-1"
+                                                                      dynamodb_table = "terraform-state-locks"
+                                                                      encrypt        = true
+                                                                    }
+                                                                  }
 
 
 
